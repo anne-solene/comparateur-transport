@@ -5,19 +5,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from streamlit_extras.let_it_rain import rain 
-#from textblob import TextBlob
+from textblob import TextBlob
 
 st.markdown("## Jacques a dit : « Il n'y a d'acte que signifiant. »")
 
 ballons = st.text_input("Aimez-vous les ballons de baudruche ?", None)
-if ballons in ['oui', 'OUI', 'Oui']:
-	#rain(
-        #emoji="🎈",
-        #font_size=54,
-        #falling_speed=5,
-        #animation_length="infinite",
-    #)
-	st.balloons()
+blob = TextBlob(ballons)
+if blob.sentiment.polarity > 0.2:
+	rain(
+        emoji="🎈",
+        font_size=54,
+        falling_speed=5,
+        animation_length="infinite",
+    )
 	st.markdown("🎈🎈🎈 Oh super, plein de ballons ! 🎈🎈🎈")
 elif ballons is not None:
 	st.markdown("Ok, je peux comprendre. Allez on passe aux choses sérieuses.")
