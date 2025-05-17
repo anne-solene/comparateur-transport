@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from streamlit_extras.let_it_rain import rain 
-from textblob import TextBlob, Blobber
+from textblob import TextBlob
 from textblob_fr import PatternTagger, PatternAnalyzer
 st.markdown("## Jacques a dit : « Il n'y a d'acte que signifiant. »")
 
