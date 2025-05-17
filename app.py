@@ -16,8 +16,8 @@ if ballons in ['oui', 'OUI', 'Oui']:
         #font_size=54,
         #falling_speed=5,
         #animation_length="infinite",
-    )
-	st.ballons()
+    #)
+	st.balloons()
 	st.markdown("🎈🎈🎈 Oh super, plein de ballons ! 🎈🎈🎈")
 elif ballons is not None:
 	st.markdown("Ok, je peux comprendre. Allez on passe aux choses sérieuses.")
