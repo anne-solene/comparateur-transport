@@ -9,7 +9,7 @@ from textblob import TextBlob
 
 st.markdown("## Jacques a dit : « Il n'y a d'acte que signifiant. »")
 
-ballons = st.text_input("Aimez-vous les ballons de baudruche ?", None)
+ballons = st.text_input("Aimez-vous les ballons de baudruche ?", "")
 blob = TextBlob(ballons)
 if blob.sentiment.polarity > 0.2:
 	rain(
