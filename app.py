@@ -11,8 +11,9 @@ st.markdown("## Jacques a dit : « Il n'y a d'acte que signifiant. »")
 
 ballons = st.text_input("Aimez-vous les ballons de baudruche ?", "")
 
-positif = ['oui', 'OUI', 'Oui', 'beaucoup']
-negatif = ['non', 'NON', 'Non']
+positif = ['oui', 'OUI', 'Oui', 'beaucoup', 'yes', 'carrément', "plutôt deux fois qu'une"]
+negatif = ['non', 'NON', 'Non', 'nope', 'no', 'absolument pas', 'pas du tout']
+neutre = []
 
 blob = TextBlob(ballons, pos_tagger=PatternTagger(), analyzer=PatternAnalyzer())
 polarite = blob.sentiment[0]
