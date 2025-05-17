@@ -5,17 +5,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from streamlit_extras.let_it_rain import rain 
+#from textblob import TextBlob
 
 st.markdown("## Jacques a dit : « Il n'y a d'acte que signifiant. »")
 
 ballons = st.text_input("Aimez-vous les ballons de baudruche ?", None)
 if ballons in ['oui', 'OUI', 'Oui']:
-	rain(
-        emoji="🎈",
-        font_size=54,
-        falling_speed=5,
-        animation_length="infinite",
+	#rain(
+        #emoji="🎈",
+        #font_size=54,
+        #falling_speed=5,
+        #animation_length="infinite",
     )
+	st.ballons()
 	st.markdown("🎈🎈🎈 Oh super, plein de ballons ! 🎈🎈🎈")
 elif ballons is not None:
 	st.markdown("Ok, je peux comprendre. Allez on passe aux choses sérieuses.")
@@ -139,4 +141,4 @@ gain = resultats['Avec remboursement du Pass Navigo, sans abonnement au parking'
 st.markdown("### 💡 Conclusions du conseiller financier :")
 st.success(f"La situation la plus économique à l'année est **{categorie_min}** : coût annuel de **{cout_min:.2f} €**. Par rapport à la situation actuelle, vous gagneriez environ {gain:.2f}€ par an. C'est tout de même l'équivalent d'environ {gain/11:.0f} salades...! ")
 st.error(f"La situation la moins stratégique économiquement à l'année est **{categorie_max}** : coût annuel de **{cout_max:.2f} €**. Dans la situation actuelle, vous évitez donc déjà {cout_max - resultats['Avec remboursement du Pass Navigo, sans abonnement au parking']:.2f}€ de pertes supplémentaires possibles. C'est un bon début, j'imagine.")
-st.info("Probablement s'imagine-t-on qu'il vaut mieux suivre les recommendations sous-entendues par l'encadré vert. Mais faut-il toujours suivre le bon sens ? Plus encore, faire le choix de la raison, n'est-ce pas déjà se soumettre au regard moral des hommes ? Dès lors, l'éthique doit-elle être invoquée dans les actions pratiques du quotidien ? Et puisque Wittgenstein a pu dire qu'« éthique et esthétique sont une seule et même chose », faut-il encore conclure que préférer l'Op.109 à l'Op.110 peut relever d'une même démarche que demander le remboursement d'un parking plutôt que d'un Pass Navigo ? Le choix, tout comme le non-choix, vous revient seul. Souvenons-nous à cette occasion que non seulement tout acte est signifiant, mais que dans l'acte, le signifiant est le sujet lui-même... sacré Jacques... Allez hop, au dodo.")
+st.info("Probablement s'imagine-t-on qu'il vaut mieux suivre les recommandations sous-entendues par l'encadré vert. Mais faut-il toujours suivre le bon sens ? Plus encore, faire le choix de la raison, n'est-ce pas déjà se soumettre au regard moral des hommes ? Dès lors, l'éthique doit-elle être invoquée dans les actions pratiques du quotidien ? Et puisque Wittgenstein a pu dire qu'« éthique et esthétique sont une seule et même chose », faut-il encore conclure que préférer l'Op.109 à l'Op.110 peut relever d'une même démarche que demander le remboursement d'un parking plutôt que d'un Pass Navigo ? Le choix, tout comme le non-choix, vous revient seul. Souvenons-nous à cette occasion que non seulement tout acte est signifiant, mais que dans l'acte, le signifiant est le sujet lui-même... sacré Jacques... Allez hop, au dodo.")
