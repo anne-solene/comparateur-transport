@@ -5,22 +5,40 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 from streamlit_extras.let_it_rain import rain 
-from textblob import TextBlob
-
+from textblob import TextBlob, Blobber
+from textblob_fr import PatternTagger, PatternAnalyzer
 st.markdown("## Jacques a dit : « Il n'y a d'acte que signifiant. »")
 
 ballons = st.text_input("Aimez-vous les ballons de baudruche ?", "")
-blob = TextBlob(ballons)
-if blob.sentiment.polarity > 0.2:
-	rain(
-        emoji="🎈",
-        font_size=54,
-        falling_speed=5,
-        animation_length="infinite",
-    )
-	st.markdown("🎈🎈🎈 Oh super, plein de ballons ! 🎈🎈🎈")
-elif ballons is not None:
-	st.markdown("Ok, je peux comprendre. Allez on passe aux choses sérieuses.")
+
+positif = ['oui', 'OUI', 'Oui', 'beaucoup']
+negatif = ['non', 'NON', 'Non']
+
+blob = TextBlob(ballons, pos_tagger=PatternTagger(), analyzer=PatternAnalyzer())
+polarite = blob.sentiment[0]
+#st.write(sentiment)
+
+if ballons != "":
+	if ballons=='neige':
+		rain(
+            emoji="❄️", 
+            font_size=54,
+            falling_speed=5,
+            animation_length="infinite",
+        )
+		st.markdown("❄️❄️❄️❄️ Oh wow, il neige ! ❄️❄️❄️")
+	elif polarite > 0.0 or ballons in positif:
+		rain(
+        	emoji="🎈",
+        	font_size=54,
+        	falling_speed=5,
+        	animation_length="infinite",
+    	)
+		st.markdown("🎈🎈🎈 Oh super, plein de ballons ! 🎈🎈🎈")
+	elif polarite == 0.0 or ballons in neutre:
+		st.markdown("Vous ne m'avez pas l'air très convaincu... Voyons voir la suite.")
+	else:
+		st.markdown("Ok, je peux comprendre. Allez on passe aux choses sérieuses.")
 	
 # Interface utilisateur (sliders)
 st.sidebar.header("Paramètres")
