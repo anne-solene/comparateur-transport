@@ -70,7 +70,7 @@ resultats['Sans aucun remboursement'] = (navigo_total +
                     bf_nb_jours * semaines_travaillees * bf_tarif_jour)
 
 # Affichage des résultats sous forme de diagramme en barres
-st.markdown("### 🔎 Comparaison des scénarios de coût")
+st.markdown("### 🔎 Comparaison des scénarios de coût Navigo/Parking")
 
 categories = list(resultats.keys())
 valeurs = list(resultats.values())
@@ -134,8 +134,9 @@ st.plotly_chart(fig, use_container_width=True)
 # Affichage de la situation la plus économique
 cout_min = resultats[categorie_min]
 cout_max = resultats[categorie_max]
+gain = resultats['Avec remboursement du Pass Navigo, sans abonnement au parking'] - cout_min
 
 st.markdown("### 💡 Conclusions du conseiller financier :")
-st.success(f"La situation la plus économique à l'année est **{categorie_min}** : coût annuel de **{cout_min:.2f} €**. Par rapport à la situation actuelle, vous gagneriez environ {resultats['Avec remboursement du Pass Navigo, sans abonnement au parking'] - cout_min:.2f}€.")
-st.error(f"La situation la moins stratégique économiquement à l'année est **{categorie_max}** : coût annuel de **{cout_max:.2f} €**. Dans la situation actuelle, vous évitez donc déjà {cout_max - resultats['Avec remboursement du Pass Navigo, sans abonnement au parking']:.2f}€ de perte supplémentaire possibles.")
-st.info("Probablement vaut-il mieux suivre les recommendations de l'encadré vert. Mais le choix, tout comme le non-choix, vous revient. Souvenons-nous à cette occasion que toute action est signifiante, soi-disant...")
+st.success(f"La situation la plus économique à l'année est **{categorie_min}** : coût annuel de **{cout_min:.2f} €**. Par rapport à la situation actuelle, vous gagneriez environ {gain:.2f}€. C'est tout de même l'équivalent d'environ {gain/11:.2f} salades...! ")
+st.error(f"La situation la moins stratégique économiquement à l'année est **{categorie_max}** : coût annuel de **{cout_max:.2f} €**. Dans la situation actuelle, vous évitez donc déjà {cout_max - resultats['Avec remboursement du Pass Navigo, sans abonnement au parking']:.2f}€ de perte supplémentaire possibles. C'est un bon début, j'imagine.")
+st.info("Probablement s'imagine-t-on qu'il vaut mieux suivre les recommendations sous-entendues par l'encadré vert. Mais faut-il toujours suivre le bon sens ? Plus encore, faire le choix de la raison, n'est-ce pas déjà se soumettre au regard moral des hommes ? Dès lors, l'éthique doit-elle être invoquée dans les actions pratiques du quotidien ? Et puisque Wittgenstein a pu dire qu'« éthique et esthétique sont une seule et même chose », faut-il encore conclure que préférer l'Op.109 à l'Op.110 peut relever d'une même démarche que demander le remboursement d'un parking plutôt que d'un Pass Navigo ? Le choix, tout comme le non-choix, vous revient seul. Souvenons-nous à cette occasion que toute acte est signifiant, et que Jacques ajoutait même que dans l'acte, le sujet est un équivalent du signifiant... soi-disant... Allez hop, au dodo.")
