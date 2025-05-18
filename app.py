@@ -27,7 +27,7 @@ if ballons != "":
             falling_speed=5,
             animation_length="infinite",
         )
-		st.markdown("❄️❄️❄️❄️ Oh wow, il neige ! ❄️❄️❄️")
+		st.markdown("❄️❄️❄️ Oh wow, il neige ! ❄️❄️❄️")
 	elif polarite > 0.0 or ballons in positif:
 		rain(
         	emoji="🎈",
@@ -49,13 +49,13 @@ navigo_tarif_mensuel = st.sidebar.slider("Tarif mensuel (€)", 0.0, 100.0, 88.8
 navigo_taux_remboursement_CRR = st.sidebar.slider("Taux de remboursement par le CRR (%)", 0, 100, 50, step=1)
 
 st.sidebar.subheader("Parking Hôtel de Ville (Q-Park)")
-hv_nb_jours = st.sidebar.slider("Nombre de jours par semaine", 0, 5, 1, step=1, key="jours_hv")
+hv_nb_jours = st.sidebar.slider("Nombre de jours par semaine", 0.0, 5.0, 1.0, step=0.1, key="jours_hv")
 hv_tarif_jour = st.sidebar.slider("Tarif journée (€)", 0.0, 50.0, 39.8, step=0.1, key="prix1J_hv")
 hv_abonnement_5 = st.sidebar.slider("Tarif abonnement 5 jours (€)", 0, 200, 145, step=1)
 hv_abonnement_7 = st.sidebar.slider("Tarif abonnement 7 jours (€)", 0, 200, 179, step=1)
 
 st.sidebar.subheader("Parking Belle-Feuille (Indigo)")
-bf_nb_jours = st.sidebar.slider("Nombre de jours par semaine", 0, 5, 1, step=1, key="jours_bf")
+bf_nb_jours = st.sidebar.slider("Nombre de jours par semaine", 0.0, 5.0, 1.0, step=0.1, key="jours_bf")
 bf_tarif_jour = st.sidebar.slider("Tarif journée (€)", 0.0, 50.0, 18.4, step=0.1, key="prix1J_bf")
 
 mois = 12
